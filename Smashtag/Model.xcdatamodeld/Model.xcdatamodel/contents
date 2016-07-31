@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G26a" minimumToolsVersion="Xcode 7.0">
+    <entity name="ID" representedClassName=".ID" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="mention" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mention" inverseName="ids" inverseEntity="Mention" syncable="YES"/>
+    </entity>
+    <entity name="Mention" representedClassName=".Mention" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="keyword" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ids" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ID" inverseName="mention" inverseEntity="ID" syncable="YES"/>
+        <relationship name="searchkey" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SearchKey" inverseName="mention" inverseEntity="SearchKey" syncable="YES"/>
+    </entity>
+    <entity name="SearchKey" representedClassName=".SearchKey" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="mention" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Mention" inverseName="searchkey" inverseEntity="Mention" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Mention" positionX="162" positionY="113" width="128" height="103"/>
+        <element name="SearchKey" positionX="-45" positionY="36" width="128" height="73"/>
+        <element name="ID" positionX="171" positionY="9" width="128" height="73"/>
+    </elements>
+</model>
